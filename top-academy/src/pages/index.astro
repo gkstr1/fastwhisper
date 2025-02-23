@@ -1,0 +1,311 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Top Recruiter Academy">
+	<main>
+		<h1>Master<span class="text-gradient">Technical</span> Recruiting</h1>
+		<p class="tagline">
+			Learn how to identify, assess, and hire top technical talent. Start your journey to becoming an expert technical recruiter today.
+		</p>
+		
+		<div class="career-transition">
+			<p class="opportunity">No experience? No problem!</p>
+			<p class="salary-potential">Launch your career in technical recruiting and earn up to <span class="highlight">$150,000</span> annually</p>
+		</div>
+
+		<div class="cta-buttons">
+			<a href="/start" class="start-learning">Start Learning</a>
+		</div>
+
+		<section class="featured-topics">
+			<h2>Featured Topics</h2>
+			<div class="topics-grid">
+				<div class="topic-card">
+					<h3>Understanding Programming Languages</h3>
+					<p>Learn the basics of different programming languages and their use cases in modern software development.</p>
+					<a href="/topics/programming-languages" class="learn-more">Learn more →</a>
+				</div>
+				<div class="topic-card">
+					<h3>Technical Interview Mastery</h3>
+					<p>Develop skills to conduct effective technical interviews and evaluate candidates' capabilities.</p>
+					<a href="/topics/interview-mastery" class="learn-more">Learn more →</a>
+				</div>
+				<div class="topic-card">
+					<h3>Skill Assessment Techniques</h3>
+					<p>Master the art of evaluating technical skills and potential in candidates.</p>
+					<a href="/topics/skill-assessment" class="learn-more">Learn more →</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="syllabus">
+			<h2>Technical Recruiting Syllabus</h2>
+			<p class="subtitle">A comprehensive guide to mastering technical recruitment</p>
+
+			<div class="modules-grid">
+				<div class="module-card">
+					<h3>Fundamentals of Technical Roles</h3>
+					<p>Understanding different technical positions and their requirements</p>
+					<ul>
+						<li>Software Developer vs. Software Engineer</li>
+						<li>Frontend, Backend, and Full Stack Development</li>
+						<li>DevOps and Site Reliability Engineering</li>
+						<li>Data Science and Machine Learning Engineering</li>
+						<li>Quality Assurance and Test Automation</li>
+					</ul>
+					<a href="/modules/fundamentals" class="learn-more">Learn more →</a>
+				</div>
+
+				<div class="module-card">
+					<h3>Technical Skills Assessment</h3>
+					<p>Learn how to evaluate technical capabilities effectively</p>
+					<ul>
+						<li>Reading and Understanding Technical Resumes</li>
+						<li>Portfolio and Code Review Basics</li>
+						<li>Technical Screening Methods</li>
+						<li>Common Programming Languages and Technologies</li>
+						<li>System Design Interview Basics</li>
+					</ul>
+					<a href="/modules/assessment" class="learn-more">Learn more →</a>
+				</div>
+
+				<div class="module-card">
+					<h3>Interview Techniques</h3>
+					<p>Master the art of technical interviews</p>
+					<ul>
+						<li>Structured vs. Unstructured Technical Interviews</li>
+						<li>Behavioral Interview Questions for Tech Roles</li>
+						<li>Live Coding Interview Best Practices</li>
+						<li>Take-Home Assignment Guidelines</li>
+						<li>Technical Communication Assessment</li>
+					</ul>
+					<a href="/modules/interviews" class="learn-more">Learn more →</a>
+				</div>
+
+				<div class="module-card">
+					<h3>Industry Knowledge</h3>
+					<p>Stay current with tech industry trends and practices</p>
+					<ul>
+						<li>Software Development Methodologies</li>
+						<li>Tech Stack Evolution and Trends</li>
+						<li>Remote Work in Tech Teams</li>
+						<li>Tech Company Culture and Values</li>
+						<li>Compensation and Benefits in Tech</li>
+					</ul>
+					<a href="/modules/industry" class="learn-more">Learn more →</a>
+				</div>
+
+				<div class="module-card">
+					<h3>Candidate Sourcing</h3>
+					<p>Effective strategies for finding technical talent</p>
+					<ul>
+						<li>Technical Job Boards and Communities</li>
+						<li>GitHub and Open Source Contributors</li>
+						<li>LinkedIn Technical Recruiter Techniques</li>
+						<li>Developer Events and Hackathons</li>
+						<li>Building a Technical Talent Pipeline</li>
+					</ul>
+					<a href="/modules/sourcing" class="learn-more">Learn more →</a>
+				</div>
+
+				<div class="module-card">
+					<h3>Diversity and Inclusion</h3>
+					<p>Building inclusive technical teams</p>
+					<ul>
+						<li>Reducing Bias in Technical Hiring</li>
+						<li>Inclusive Job Descriptions</li>
+						<li>Alternative Technical Education Paths</li>
+						<li>Supporting Underrepresented Groups in Tech</li>
+						<li>Creating Inclusive Interview Processes</li>
+					</ul>
+					<a href="/modules/diversity" class="learn-more">Learn more →</a>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 1200px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 0.5em;
+	}
+	.tagline {
+		text-align: center;
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: rgb(var(--accent-light));
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.career-transition {
+		text-align: center;
+		background: rgba(var(--accent-dark), 0.3);
+		padding: 2rem;
+		border-radius: 8px;
+		margin: 2rem auto;
+		max-width: 800px;
+		border: 1px solid rgba(var(--accent-light), 0.2);
+	}
+	.opportunity {
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: rgb(var(--accent-light));
+		margin-bottom: 0.5rem;
+	}
+	.salary-potential {
+		font-size: 1.2rem;
+	}
+	.highlight {
+		color: rgb(var(--accent-light));
+		font-weight: bold;
+	}
+	.cta-buttons {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		margin: 2rem 0 4rem;
+	}
+	.start-learning {
+		display: inline-block;
+		padding: 1rem 2rem;
+		background: rgb(var(--accent));
+		color: white;
+		text-decoration: none;
+		border-radius: 8px;
+		font-weight: bold;
+		font-size: 1.2rem;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 14px rgba(var(--accent), 0.4);
+	}
+	.start-learning:hover {
+		background: rgb(var(--accent-dark));
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(var(--accent), 0.6);
+	}
+	.featured-topics {
+		margin: 4rem 0;
+	}
+	.featured-topics h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		margin-bottom: 2rem;
+	}
+	.topics-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+	.topic-card {
+		background: rgba(var(--accent-dark), 0.2);
+		padding: 2rem;
+		border-radius: 8px;
+		border: 1px solid rgba(var(--accent-light), 0.1);
+		transition: all 0.3s ease;
+	}
+	.topic-card:hover {
+		transform: translateY(-5px);
+		background: rgba(var(--accent-dark), 0.3);
+	}
+	.topic-card h3 {
+		color: rgb(var(--accent-light));
+		margin-bottom: 1rem;
+	}
+	.learn-more {
+		display: inline-block;
+		margin-top: 1rem;
+		color: rgb(var(--accent-light));
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+	.learn-more:hover {
+		color: white;
+	}
+	.syllabus {
+		margin: 6rem 0;
+	}
+	.syllabus h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+	.subtitle {
+		text-align: center;
+		color: rgb(var(--accent-light));
+		margin-bottom: 3rem;
+	}
+	.modules-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+	}
+	.module-card {
+		background: rgba(var(--accent-dark), 0.2);
+		padding: 2rem;
+		border-radius: 8px;
+		border: 1px solid rgba(var(--accent-light), 0.1);
+		transition: all 0.3s ease;
+	}
+	.module-card:hover {
+		transform: translateY(-5px);
+		background: rgba(var(--accent-dark), 0.3);
+	}
+	.module-card h3 {
+		color: rgb(var(--accent-light));
+		margin-bottom: 1rem;
+	}
+	.module-card p {
+		margin-bottom: 1.5rem;
+		font-size: 0.9em;
+	}
+	.module-card ul {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.5rem 0;
+	}
+	.module-card li {
+		margin-bottom: 0.5rem;
+		font-size: 0.9em;
+		padding-left: 1.5em;
+		position: relative;
+	}
+	.module-card li:before {
+		content: "•";
+		color: rgb(var(--accent-light));
+		position: absolute;
+		left: 0;
+	}
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 3rem;
+		}
+		.tagline {
+			font-size: 1.2rem;
+		}
+		.topics-grid, .modules-grid {
+			grid-template-columns: 1fr;
+		}
+		.module-card {
+			padding: 1.5rem;
+		}
+	}
+</style>
