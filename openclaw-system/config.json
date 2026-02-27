@@ -1,0 +1,49 @@
+{
+  "system": "openclaw",
+  "version": "1.0",
+  "notes_path": "/data/notes",
+  "repository": "https://github.com/gkstr1/Glenclaw.git",
+  "folders": {
+    "inbox": {
+      "description": "Quick captures and unprocessed items",
+      "permissions": ["read", "write"],
+      "auto_process": true
+    },
+    "operator": {
+      "description": "System operations and commands",
+      "permissions": ["read", "write"],
+      "auto_process": true
+    },
+    "recruiting": {
+      "description": "ATS and recruitment data",
+      "permissions": ["read", "write"],
+      "auto_process": true,
+      "integrations": ["scorecard_ats"]
+    },
+    "trading": {
+      "description": "Trading analysis and watchlist",
+      "permissions": ["read", "write"],
+      "auto_process": true
+    },
+    "openclaw-system": {
+      "description": "OpenClaw system documentation",
+      "permissions": ["read", "write"],
+      "auto_process": false
+    },
+    "personal": {
+      "description": "Personal notes (private)",
+      "permissions": ["read"],
+      "auto_process": false
+    }
+  },
+  "sync": {
+    "auto_sync": false,
+    "sync_interval_minutes": 15,
+    "conflict_resolution": "last_write_wins"
+  },
+  "commands": {
+    "sync": "./sync-vps.sh",
+    "status": "git status",
+    "log": "git log --oneline -5"
+  }
+}
