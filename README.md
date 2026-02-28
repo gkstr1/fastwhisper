@@ -1,62 +1,59 @@
-# Glenclaw Notes Repository
+# FastWhisper (CPU) — Docker Deployment
 
-A centralized notes system for Windsurf (laptop) and OpenClaw (VPS) synchronization.
+FastAPI + Faster-Whisper transcription service optimized for Hostinger VPS Docker deployment.
 
-## Structure
+## Files
 
-- `inbox/` - Quick captures and unprocessed notes
-- `operator/` - System operations and management
-- `recruiting/` - Recruitment and ATS related notes
-- `trading/` - Trading strategies and analysis
-- `openclaw-system/` - OpenClaw system documentation
-- `personal/` - Personal notes and references
+- `fastwhisper/Dockerfile` — Python 3.11 slim with Faster-Whisper + FFmpeg
+- `fastwhisper/app.py` — FastAPI wrapper exposing `/transcribe` endpoint
+- `docker-compose.yml` — Full compose configuration
 
-## Repository Locations
+## Quick Usage
 
-- **Laptop (Windsurf)**: `~/Apps/Glenclaw`
-- **VPS (OpenClaw)**: `/data/notes`
+1. **Clone to Hostinger VPS:**
+   ```bash
+   cd ~/docker
+   git clone https://github.com/YOUR_USERNAME/fastwhisper-deploy.git
+   cd fastwhisper-deploy
+   ```
 
-## Quick Sync Commands
+2. **Build and deploy:**
+   ```bash
+   docker compose build fastwhisper
+   docker compose up -d fastwhisper
+   ```
 
-### Laptop → VPS (Push changes)
-```bash
-cd ~/Apps/Glenclaw
-./sync-to-vps.sh "your commit message"
-```
+3. **Test locally:**
+   ```bash
+   curl -X POST "http://localhost:5100/transcribe" -F "file=@/path/to/test.ogg"
+   ```
 
-### VPS → Laptop (Pull changes)
-```bash
-cd ~/Apps/Glenclaw
-./sync-from-vps.sh
-```
+4. **Test from another container in the same compose network:**
+   ```bash
+   curl -X POST "http://fastwhisper:5100/transcribe" -F "file=@/path/to/test.ogg"
+   ```
 
-## Manual Sync Workflow
+## Configuration
 
-### Laptop → VPS
-```bash
-cd ~/Apps/Glenclaw
-git add .
-git commit -m "update notes"
-git push
-```
+| Environment Variable | Description | Default |
+|---------------------|-------------|---------|
+| `FW_MODEL` | Whisper model name | `openai/whisper-small` |
+| `FW_DEVICE` | Device to use (cpu/cuda) | `cpu` |
 
-Then on VPS:
-```bash
-cd /data/notes
-git pull
-```
+### Model Sizes
 
-### VPS → Laptop
-On VPS:
-```bash
-cd /data/notes
-git add .
-git commit -m "server updates"
-git push
-```
+- `openai/whisper-tiny` — Fastest, lowest accuracy
+- `openai/whisper-small` — **Default** — Balanced
+- `openai/whisper-medium` — Better accuracy, slower
+- `openai/whisper-large-v3` — Best accuracy, slowest (needs more RAM)
 
-Then on laptop:
-```bash
-cd ~/Apps/Glenclaw
-git pull
-```
+## Resource Requirements
+
+- **Default (small model):** 1 CPU, 2GB RAM
+- **Medium model:** 1-2 CPU, 4GB RAM
+- **Large model:** 2+ CPU, 8GB+ RAM
+
+## Security Notes
+
+- Add API key authentication if exposing port publicly
+- Consider using a reverse proxy (nginx) with rate limiting

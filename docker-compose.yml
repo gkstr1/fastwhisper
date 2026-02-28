@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  fastwhisper:
+    build:
+      context: ./fastwhisper
+      dockerfile: Dockerfile
+    image: fastwhisper:cpu
+    container_name: fastwhisper
+    restart: unless-stopped
+    environment:
+      - FW_MODEL=openai/whisper-small
+      - FW_DEVICE=cpu
+    ports:
+      - "5100:5100"
+    volumes:
+      - ./fastwhisper/audio:/app/audio
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
