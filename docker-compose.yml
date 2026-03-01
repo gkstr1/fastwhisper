@@ -11,12 +11,18 @@ services:
     environment:
       - FW_MODEL=openai/whisper-small
       - FW_DEVICE=cpu
+      - HF_HOME=/home/appuser/.cache/huggingface
     ports:
       - "5100:5100"
     volumes:
       - ./fastwhisper/audio:/app/audio
+      - fastwhisper_hf_cache:/home/appuser/.cache/huggingface
     deploy:
       resources:
         limits:
           cpus: '1.0'
           memory: 2G
+
+volumes:
+  fastwhisper_hf_cache:
+    driver: local
