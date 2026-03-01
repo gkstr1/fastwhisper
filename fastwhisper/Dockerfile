@@ -19,7 +19,7 @@ USER appuser
 RUN python3 -m venv /home/appuser/venv
 ENV PATH="/home/appuser/venv/bin:$PATH"
 RUN pip install --upgrade pip setuptools wheel
-RUN pip install fastapi uvicorn[standard] faster-whisper
+RUN pip install fastapi uvicorn[standard] faster-whisper python-multipart
 
 # Set HuggingFace cache environment variable
 ENV HF_HOME=/home/appuser/.cache/huggingface
