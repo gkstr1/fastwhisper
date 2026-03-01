@@ -24,6 +24,9 @@ RUN pip install fastapi uvicorn[standard] faster-whisper
 # Set HuggingFace cache environment variable
 ENV HF_HOME=/home/appuser/.cache/huggingface
 
+# Pre-download the model during build to avoid runtime issues
+RUN python3 -c "from faster_whisper import WhisperModel; WhisperModel('openai/whisper-small', device='cpu', compute_type='int8')"
+
 # Copy app files
 COPY --chown=appuser:appuser app.py /home/appuser/app.py
 COPY --chown=appuser:appuser entrypoint.sh /home/appuser/entrypoint.sh
