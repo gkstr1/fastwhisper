@@ -14,7 +14,8 @@ logger = logging.getLogger(__name__)
 app = FastAPI(title="FastWhisper HTTP Transcription (CPU)")
 
 # Model configuration (change model size if you prefer a different whisper size)
-MODEL_NAME = os.environ.get("FW_MODEL", "openai/whisper-small")
+# Use Systran's CTranslate2 format models which work with faster-whisper
+MODEL_NAME = os.environ.get("FW_MODEL", "Systran/faster-whisper-small")
 MODEL_DEVICE = os.environ.get("FW_DEVICE", "cpu")
 HF_CACHE = os.environ.get("HF_HOME", "/home/appuser/.cache/huggingface")
 
@@ -28,11 +29,11 @@ def load_model_with_retry(max_retries=3, delay=5):
             # Force clean cache on retry attempts
             if attempt > 0:
                 logger.info("Cleaning cache before retry...")
-                cache_model_path = os.path.join(HF_CACHE, "models--openai--whisper-small")
-                if os.path.exists(cache_model_path):
+                cache_hub_path = os.path.join(HF_CACHE, "hub")
+                if os.path.exists(cache_hub_path):
                     import shutil
-                    shutil.rmtree(cache_model_path, ignore_errors=True)
-                    logger.info(f"Removed cache directory: {cache_model_path}")
+                    shutil.rmtree(cache_hub_path, ignore_errors=True)
+                    logger.info(f"Removed cache directory: {cache_hub_path}")
             
             # Load model - this will download if not present
             model = WhisperModel(

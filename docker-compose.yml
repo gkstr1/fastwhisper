@@ -9,7 +9,7 @@ services:
     container_name: fastwhisper
     restart: unless-stopped
     environment:
-      - FW_MODEL=openai/whisper-small
+      - FW_MODEL=Systran/faster-whisper-small
       - FW_DEVICE=cpu
       - HF_HOME=/home/appuser/.cache/huggingface
     ports:
